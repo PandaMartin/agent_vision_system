@@ -15,7 +15,7 @@
 | **PS 固件** | `src/vitis_workspace/` | Vitis 2025.2 + FreeRTOS 五任务 + lwIP + LVGL 桌面 + ncnn 推理运行时；驱动—实现—应用三层单向依赖 |
 | **上位机智能体** | `src/host_agent/` | 训练/导出/量化审阅/封包/推送/SD 应用编译全链路 Python 源码 + agent 技能文件族（`skills/host-agent/`）+ 图形工具箱 |
 
-**核心创新**（详见 `report/design_report.docx` §1.3）：模型即文件（加模型不改固件）、
+**核心创新**（详见 `report/design_report.md` §1.3）：模型即文件（加模型不改固件）、
 应用即文件（64 字节头校验后零重定位执行）、软硬协同视频主干（像素流不经 PS）、
 检测—控制异步闭环（检测低频 / 云台控制 20 Hz，数据桥解耦 + 前馈补偿）。
 
@@ -54,7 +54,7 @@ agent_vision_system/
 ## 复现步骤（从零开始）
 
 环境：Vivado/Vitis **2025.2**（实现报告所载版本）、Python 3.x、FAT32 SD 卡、直连网线。
-逐步判据与细节见 `report/design_report.docx` §7（九步完整版）；主干如下：
+逐步判据与细节见 `report/design_report.md` §7（九步完整版）；主干如下：
 
 ```bash
 # ① PL 重建（约 20–40 分钟；也可直接用 board/firmware/system_wrapper.bit）
@@ -118,7 +118,7 @@ SD 应用从零开发（不打开 IDE）：`python tools/sdapp/sdapp.py export` 
 
 ## 更多入口
 
-- 设计报告（七项要求逐项对应）：`report/design_report.docx`
+- 设计报告（Markdown，七项要求逐项对应，配图 14 幅）：`report/design_report.md`
 - 大模型协作与智能体工作流：`report/llm_collaboration_log.md`
 - 技能包（含通用 PYNQ 技能）：`skill/README.md`
 - 完整提交自检：`python skill/verification-scripts/repo_integrity_check.py <仓库根>`
