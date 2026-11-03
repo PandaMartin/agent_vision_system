@@ -20,6 +20,11 @@ python train/train.py --help           # 训练入口（mnist/手形/人脸检�
   - arm 交叉编译器：`FPGA_TOOLCHAIN` 设前缀（如 `arm-none-eabi-`），或用 Vitis 自带工具链；
 - 板卡参数单一真值源：`board_profile.json`。
 
+> 提交包体积说明（与仓库根 README"提交合规说明"一致）：本快照内
+> `models_sd/`（板端就绪包）与 `firmware/`（JTAG 下载组）为重复副本，已去重——
+> 分别使用 `data/model_packs/` 与 `board/firmware/`；agent 运行时如需原路径，
+> 复制或软链回去即可（`train/` 内脚本按相对路径自动识别）。
+
 ## 打包分发方式（PyInstaller onedir）
 
 本项目随开发机打包为免安装目录包（入口 `FPGA_Deploy_Assistant.exe`，内含 Python 运行时、

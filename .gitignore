@@ -8,6 +8,13 @@
 **/*.wdb
 **/*.wdf
 
+# Vivado 可再生检查点（体积治理：仅保留布线后 routed.dcp 作网表证据）
+**/*.runs/synth_1/*.dcp
+**/impl_1/system_wrapper_opt.dcp
+**/impl_1/system_wrapper_placed.dcp
+**/impl_1/system_wrapper_physopt.dcp
+**/utils_1/imports/
+
 # Python
 **/__pycache__/
 *.pyc

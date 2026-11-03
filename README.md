@@ -33,7 +33,7 @@ agent_vision_system/
 ├── board/             # 上板工程（XSA + bit/fsbl/elf 下载组）、运行脚本（JTAG/TFTP）与实测输出
 ├── data/              # 测试数据（MNIST）与参考结果（模型包/精度/审阅规则/实测口径）
 ├── skill/             # 技能包：提示词工作流/案例模板/校验脚本/踩坑清单 + 通用 PYNQ 技能
-└── report/            # 设计报告 + 技术报告 + 大模型协作记录（README 内含七项要求对照）
+└── report/            # 设计报告 + 大模型协作记录（README 内含七项要求对照）
 ```
 
 ### 官方要求 → 本仓库对照
@@ -88,9 +88,23 @@ SD 应用从零开发（不打开 IDE）：`python tools/sdapp/sdapp.py export` 
 - 开发期中文文件名已重命名并保留对照：`平台网络配置记录.md→platform_network_config.md`、
   `应用开发指南.md→app_dev_guide.md`、`推理应用设计方案.md→inference_app_design.md`、
   `模型平台化设计.md→model_platform_design.md`（固件侧与上位机侧同名文档内容一致）；
-- 体积治理（如实声明）：上位机的 PyInstaller 运行时分发（`_internal/` 数 GB）与
-  `prebuilt/` 交叉编译器/ncnn/OpenOCD（387 MB）、两个 exe（各 65 MB）**未随仓库**，
-  获取与替代方式见 `build/build_host_agent.md`；仓库内含全链路源码与等价工具入口。
+- **体积治理（提交包 ≤200MB，如实声明全部裁剪项，均为可再生或重复内容）**：
+  1. 上位机 PyInstaller 运行时分发（`_internal/` 数 GB）、`prebuilt/` 工具链（387MB）、两个 exe 不随包
+     （获取方式见 `build/build_host_agent.md`）；
+  2. Vivado 可再生中间检查点不随包：`synth_1/system_wrapper.dcp`、`impl_1/{opt,placed,physopt}.dcp`、
+     `utils_1/imports/`（从他机导入的同内容 dcp）——重新跑实现即再生；**保留**布线后
+     `system_wrapper_routed.dcp`（10.5MB，最终网表，含 rgb2lcd 实例产物，见"已知事项"第 1 条）；
+  3. 重复副本去重：上位机 `models_sd/`（= `data/model_packs/`）、上位机 `firmware/`
+     （= `board/firmware/`）、模型库内与 `model.bin` 逐字节相同的原始权重
+     （`hands_fp32.bin`、`wider_face_fp32.bin`×2，MD5 已核验相同）、
+     `wider_face_retinaface_fp32/model_mem.cpp`（由权重经 `train/bin2c.py` 生成的 C 数组，可再生）；
+  4. `data/datasets/mnist/images/`（3 万张 PNG 展开图）不随包——训练/评测以 `mnist.npz` 为准，
+     `train/datasets.py` 从 npz 加载；`data/model_packs/wider_face_ssdlite_int8.rar`（与
+     `wd_face_ssd_int8/` 目录同内容）不随包；
+  5. 人脸检测 INT8 包的 fp32 审阅基线权重（11MB）不随包——重跑 `train/train.py` 即可再生
+     （审阅规则见 `data/reference_results.md` §2）。
+  重新生成被裁剪内容的入口：PL 产物 `build/rebuild_fpga.tcl`；模型权重 `train/train.py` +
+  `train/export_ncnn.py`；数据集图片 `train/datasets.py`。
 
 ## 已知事项（如实声明）
 
