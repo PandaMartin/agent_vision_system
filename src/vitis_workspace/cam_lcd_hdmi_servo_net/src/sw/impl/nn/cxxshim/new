@@ -1,0 +1,8 @@
+// 最小 <new> 替身头 —— 配合 -nostdinc++ 使用
+//
+// 背景：arm-none-eabi-g++ 的 libstdc++ 头（cmath/math.h 包装等）会拖入完整 STL，
+// 与 ncnn 的 simplestl.h 冲突。本工程用 -nostdinc++ 完全排除 libstdc++ 头目录，
+// 但 ncnn 的 simplestl.h 里有一句 #include <new>，需要提供此替身让包含不为错。
+// 注意：simplestl.h 已自行声明全部 operator new/delete（含 placement 版本），
+// 因此本头文件无需提供任何内容。
+#pragma once

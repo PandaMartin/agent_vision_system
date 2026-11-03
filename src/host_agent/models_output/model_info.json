@@ -1,0 +1,16 @@
+{
+  "models": [
+    {
+      "name": "mnist_simple_cnn_20261102_103123",
+      "pack_stem": "mnist_simple_cnn",
+      "dataset": "mnist",
+      "arch": "simple_cnn",
+      "test_accuracy": 0.9859,
+      "run_dir": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\models_output\\mnist_simple_cnn_20261102_103123",
+      "keras_path": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\models_output\\mnist_simple_cnn_20261102_103123\\model.pt",
+      "model_path": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\models_output\\mnist_simple_cnn_20261102_103123\\model.pt",
+      "post": "classify",
+      "created_at": "20261102_103124"
+    }
+  ]
+}

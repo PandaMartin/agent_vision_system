@@ -1,0 +1,10 @@
+# ov5640_capture_data RTL 仿真结果（Vivado 2026.1 xsim, run_sim.tcl 一键复跑）
+# 源: build/ov5640_cap_sim.sim/sim_1/behav/xsim/simulate.log
+
+CHECK C1 PASS: cam_rst_n=1, cam_pwdn=0
+CHECK C2 PASS: cmos_frame_clk == cam_pclk
+CHECK C3 PASS: wait_done 前无输出 (de_before_wait=0)
+CHECK C4 PASS: 每帧 64 像素配对, 共 192 (= 3 帧 x 64)
+CHECK C5 PASS: 192 像素 RGB565->RGB888 扩展逐像素一致
+CHECK C6 PASS: 3 个输出帧端口序列逐点一致 (每帧 56 选通, 行主序窗口)
+TB_PASS: all 6 checks passed (frames_in=13, pixels_checked=192)

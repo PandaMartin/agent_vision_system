@@ -1,0 +1,213 @@
+7767517
+211 232
+Input data 0 1 data 0=300 1=300 2=3
+Convolution stem_conv 1 1 data stem_conv 0=32 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=864 9=0
+Clip stem_act 1 1 stem_conv stem_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_0_dw_conv 1 1 stem_act blocks_0_dw_conv 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=288 7=32 9=0
+Clip blocks_0_dw_act 1 1 blocks_0_dw_conv blocks_0_dw_act 0=0.000000 1=6.000000
+Convolution blocks_0_proj 1 1 blocks_0_dw_act blocks_0_proj 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=512 9=0
+Convolution blocks_1_expand_conv 1 1 blocks_0_proj blocks_1_expand_conv 0=96 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1536 9=0
+Clip blocks_1_expand_act 1 1 blocks_1_expand_conv blocks_1_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_1_dw_conv 1 1 blocks_1_expand_act blocks_1_dw_conv 0=96 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=864 7=96 9=0
+Clip blocks_1_dw_act 1 1 blocks_1_dw_conv blocks_1_dw_act 0=0.000000 1=6.000000
+Convolution blocks_1_proj 1 1 blocks_1_dw_act blocks_1_proj 0=24 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=2304 9=0
+Split split 1 2 blocks_1_proj blocks_1_proj_c0 blocks_1_proj_c1
+Convolution blocks_2_expand_conv 1 1 blocks_1_proj_c0 blocks_2_expand_conv 0=144 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=3456 9=0
+Clip blocks_2_expand_act 1 1 blocks_2_expand_conv blocks_2_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_2_dw_conv 1 1 blocks_2_expand_act blocks_2_dw_conv 0=144 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1296 7=144 9=0
+Clip blocks_2_dw_act 1 1 blocks_2_dw_conv blocks_2_dw_act 0=0.000000 1=6.000000
+Convolution blocks_2_proj 1 1 blocks_2_dw_act blocks_2_proj 0=24 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=3456 9=0
+Eltwise add 2 1 blocks_1_proj_c1 blocks_2_proj add 0=1
+Convolution blocks_3_expand_conv 1 1 add blocks_3_expand_conv 0=144 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=3456 9=0
+Clip blocks_3_expand_act 1 1 blocks_3_expand_conv blocks_3_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_3_dw_conv 1 1 blocks_3_expand_act blocks_3_dw_conv 0=144 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=1296 7=144 9=0
+Clip blocks_3_dw_act 1 1 blocks_3_dw_conv blocks_3_dw_act 0=0.000000 1=6.000000
+Convolution blocks_3_proj 1 1 blocks_3_dw_act blocks_3_proj 0=32 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4608 9=0
+Split split_1 1 2 blocks_3_proj blocks_3_proj_c0 blocks_3_proj_c1
+Convolution blocks_4_expand_conv 1 1 blocks_3_proj_c0 blocks_4_expand_conv 0=192 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=6144 9=0
+Clip blocks_4_expand_act 1 1 blocks_4_expand_conv blocks_4_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_4_dw_conv 1 1 blocks_4_expand_act blocks_4_dw_conv 0=192 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1728 7=192 9=0
+Clip blocks_4_dw_act 1 1 blocks_4_dw_conv blocks_4_dw_act 0=0.000000 1=6.000000
+Convolution blocks_4_proj 1 1 blocks_4_dw_act blocks_4_proj 0=32 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=6144 9=0
+Eltwise add_1 2 1 blocks_3_proj_c1 blocks_4_proj add_1 0=1
+Split split_2 1 2 add_1 add_1_c0 add_1_c1
+Convolution blocks_5_expand_conv 1 1 add_1_c0 blocks_5_expand_conv 0=192 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=6144 9=0
+Clip blocks_5_expand_act 1 1 blocks_5_expand_conv blocks_5_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_5_dw_conv 1 1 blocks_5_expand_act blocks_5_dw_conv 0=192 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1728 7=192 9=0
+Clip blocks_5_dw_act 1 1 blocks_5_dw_conv blocks_5_dw_act 0=0.000000 1=6.000000
+Convolution blocks_5_proj 1 1 blocks_5_dw_act blocks_5_proj 0=32 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=6144 9=0
+Eltwise add_2 2 1 add_1_c1 blocks_5_proj add_2 0=1
+Convolution blocks_6_expand_conv 1 1 add_2 blocks_6_expand_conv 0=192 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=6144 9=0
+Clip blocks_6_expand_act 1 1 blocks_6_expand_conv blocks_6_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_6_dw_conv 1 1 blocks_6_expand_act blocks_6_dw_conv 0=192 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=1728 7=192 9=0
+Clip blocks_6_dw_act 1 1 blocks_6_dw_conv blocks_6_dw_act 0=0.000000 1=6.000000
+Convolution blocks_6_proj 1 1 blocks_6_dw_act blocks_6_proj 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=12288 9=0
+Split split_3 1 2 blocks_6_proj blocks_6_proj_c0 blocks_6_proj_c1
+Convolution blocks_7_expand_conv 1 1 blocks_6_proj_c0 blocks_7_expand_conv 0=384 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Clip blocks_7_expand_act 1 1 blocks_7_expand_conv blocks_7_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_7_dw_conv 1 1 blocks_7_expand_act blocks_7_dw_conv 0=384 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=3456 7=384 9=0
+Clip blocks_7_dw_act 1 1 blocks_7_dw_conv blocks_7_dw_act 0=0.000000 1=6.000000
+Convolution blocks_7_proj 1 1 blocks_7_dw_act blocks_7_proj 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Eltwise add_3 2 1 blocks_6_proj_c1 blocks_7_proj add_3 0=1
+Split split_4 1 2 add_3 add_3_c0 add_3_c1
+Convolution blocks_8_expand_conv 1 1 add_3_c0 blocks_8_expand_conv 0=384 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Clip blocks_8_expand_act 1 1 blocks_8_expand_conv blocks_8_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_8_dw_conv 1 1 blocks_8_expand_act blocks_8_dw_conv 0=384 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=3456 7=384 9=0
+Clip blocks_8_dw_act 1 1 blocks_8_dw_conv blocks_8_dw_act 0=0.000000 1=6.000000
+Convolution blocks_8_proj 1 1 blocks_8_dw_act blocks_8_proj 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Eltwise add_4 2 1 add_3_c1 blocks_8_proj add_4 0=1
+Split split_5 1 2 add_4 add_4_c0 add_4_c1
+Convolution blocks_9_expand_conv 1 1 add_4_c0 blocks_9_expand_conv 0=384 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Clip blocks_9_expand_act 1 1 blocks_9_expand_conv blocks_9_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_9_dw_conv 1 1 blocks_9_expand_act blocks_9_dw_conv 0=384 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=3456 7=384 9=0
+Clip blocks_9_dw_act 1 1 blocks_9_dw_conv blocks_9_dw_act 0=0.000000 1=6.000000
+Convolution blocks_9_proj 1 1 blocks_9_dw_act blocks_9_proj 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Eltwise add_5 2 1 add_4_c1 blocks_9_proj add_5 0=1
+Convolution blocks_10_expand_conv 1 1 add_5 blocks_10_expand_conv 0=384 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=24576 9=0
+Clip blocks_10_expand_act 1 1 blocks_10_expand_conv blocks_10_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_10_dw_conv 1 1 blocks_10_expand_act blocks_10_dw_conv 0=384 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=3456 7=384 9=0
+Clip blocks_10_dw_act 1 1 blocks_10_dw_conv blocks_10_dw_act 0=0.000000 1=6.000000
+Convolution blocks_10_proj 1 1 blocks_10_dw_act blocks_10_proj 0=96 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=36864 9=0
+Split split_6 1 2 blocks_10_proj blocks_10_proj_c0 blocks_10_proj_c1
+Convolution blocks_11_expand_conv 1 1 blocks_10_proj_c0 blocks_11_expand_conv 0=576 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=55296 9=0
+Clip blocks_11_expand_act 1 1 blocks_11_expand_conv blocks_11_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_11_dw_conv 1 1 blocks_11_expand_act blocks_11_dw_conv 0=576 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=5184 7=576 9=0
+Clip blocks_11_dw_act 1 1 blocks_11_dw_conv blocks_11_dw_act 0=0.000000 1=6.000000
+Convolution blocks_11_proj 1 1 blocks_11_dw_act blocks_11_proj 0=96 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=55296 9=0
+Eltwise add_6 2 1 blocks_10_proj_c1 blocks_11_proj add_6 0=1
+Split split_7 1 2 add_6 add_6_c0 add_6_c1
+Convolution blocks_12_expand_conv 1 1 add_6_c0 blocks_12_expand_conv 0=576 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=55296 9=0
+Clip blocks_12_expand_act 1 1 blocks_12_expand_conv blocks_12_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_12_dw_conv 1 1 blocks_12_expand_act blocks_12_dw_conv 0=576 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=5184 7=576 9=0
+Clip blocks_12_dw_act 1 1 blocks_12_dw_conv blocks_12_dw_act 0=0.000000 1=6.000000
+Convolution blocks_12_proj 1 1 blocks_12_dw_act blocks_12_proj 0=96 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=55296 9=0
+Eltwise add_7 2 1 add_6_c1 blocks_12_proj add_7 0=1
+Split split_8 1 3 add_7 add_7_c0 add_7_c1 add_7_c2
+Convolution blocks_13_expand_conv 1 1 add_7_c0 blocks_13_expand_conv 0=576 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=55296 9=0
+Clip blocks_13_expand_act 1 1 blocks_13_expand_conv blocks_13_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_13_dw_conv 1 1 blocks_13_expand_act blocks_13_dw_conv 0=576 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=5184 7=576 9=0
+Clip blocks_13_dw_act 1 1 blocks_13_dw_conv blocks_13_dw_act 0=0.000000 1=6.000000
+Convolution blocks_13_proj 1 1 blocks_13_dw_act blocks_13_proj 0=160 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=92160 9=0
+Split split_9 1 2 blocks_13_proj blocks_13_proj_c0 blocks_13_proj_c1
+Convolution blocks_14_expand_conv 1 1 blocks_13_proj_c0 blocks_14_expand_conv 0=960 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=153600 9=0
+Clip blocks_14_expand_act 1 1 blocks_14_expand_conv blocks_14_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_14_dw_conv 1 1 blocks_14_expand_act blocks_14_dw_conv 0=960 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=8640 7=960 9=0
+Clip blocks_14_dw_act 1 1 blocks_14_dw_conv blocks_14_dw_act 0=0.000000 1=6.000000
+Convolution blocks_14_proj 1 1 blocks_14_dw_act blocks_14_proj 0=160 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=153600 9=0
+Eltwise add_8 2 1 blocks_13_proj_c1 blocks_14_proj add_8 0=1
+Split split_10 1 2 add_8 add_8_c0 add_8_c1
+Convolution blocks_15_expand_conv 1 1 add_8_c0 blocks_15_expand_conv 0=960 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=153600 9=0
+Clip blocks_15_expand_act 1 1 blocks_15_expand_conv blocks_15_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_15_dw_conv 1 1 blocks_15_expand_act blocks_15_dw_conv 0=960 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=8640 7=960 9=0
+Clip blocks_15_dw_act 1 1 blocks_15_dw_conv blocks_15_dw_act 0=0.000000 1=6.000000
+Convolution blocks_15_proj 1 1 blocks_15_dw_act blocks_15_proj 0=160 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=153600 9=0
+Eltwise add_9 2 1 add_8_c1 blocks_15_proj add_9 0=1
+Convolution blocks_16_expand_conv 1 1 add_9 blocks_16_expand_conv 0=960 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=153600 9=0
+Clip blocks_16_expand_act 1 1 blocks_16_expand_conv blocks_16_expand_act 0=0.000000 1=6.000000
+ConvolutionDepthWise blocks_16_dw_conv 1 1 blocks_16_expand_act blocks_16_dw_conv 0=960 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=8640 7=960 9=0
+Clip blocks_16_dw_act 1 1 blocks_16_dw_conv blocks_16_dw_act 0=0.000000 1=6.000000
+Convolution blocks_16_proj 1 1 blocks_16_dw_act blocks_16_proj 0=320 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=307200 9=0
+Convolution conv_head_conv 1 1 blocks_16_proj conv_head_conv 0=1280 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=409600 9=0
+Clip conv_head_act 1 1 conv_head_conv conv_head_act 0=0.000000 1=6.000000
+Split split_11 1 3 conv_head_act conv_head_act_c0 conv_head_act_c1 conv_head_act_c2
+Convolution extras_0_pw_conv 1 1 conv_head_act_c0 extras_0_pw_conv 0=256 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=327680 9=0
+Clip extras_0_pw_act 1 1 extras_0_pw_conv extras_0_pw_act 0=0.000000 1=6.000000
+ConvolutionDepthWise extras_0_dw_conv 1 1 extras_0_pw_act extras_0_dw_conv 0=256 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=2304 7=256 9=0
+Clip extras_0_dw_act 1 1 extras_0_dw_conv extras_0_dw_act 0=0.000000 1=6.000000
+Convolution extras_0_proj_conv 1 1 extras_0_dw_act extras_0_proj_conv 0=512 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=131072 9=0
+Clip extras_0_proj_act 1 1 extras_0_proj_conv extras_0_proj_act 0=0.000000 1=6.000000
+Split split_12 1 3 extras_0_proj_act extras_0_proj_act_c0 extras_0_proj_act_c1 extras_0_proj_act_c2
+Convolution extras_1_pw_conv 1 1 extras_0_proj_act_c0 extras_1_pw_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536 9=0
+Clip extras_1_pw_act 1 1 extras_1_pw_conv extras_1_pw_act 0=0.000000 1=6.000000
+ConvolutionDepthWise extras_1_dw_conv 1 1 extras_1_pw_act extras_1_dw_conv 0=128 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+Clip extras_1_dw_act 1 1 extras_1_dw_conv extras_1_dw_act 0=0.000000 1=6.000000
+Convolution extras_1_proj_conv 1 1 extras_1_dw_act extras_1_proj_conv 0=256 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=32768 9=0
+Clip extras_1_proj_act 1 1 extras_1_proj_conv extras_1_proj_act 0=0.000000 1=6.000000
+Split split_13 1 3 extras_1_proj_act extras_1_proj_act_c0 extras_1_proj_act_c1 extras_1_proj_act_c2
+Convolution extras_2_pw_conv 1 1 extras_1_proj_act_c0 extras_2_pw_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=32768 9=0
+Clip extras_2_pw_act 1 1 extras_2_pw_conv extras_2_pw_act 0=0.000000 1=6.000000
+ConvolutionDepthWise extras_2_dw_conv 1 1 extras_2_pw_act extras_2_dw_conv 0=128 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+Clip extras_2_dw_act 1 1 extras_2_dw_conv extras_2_dw_act 0=0.000000 1=6.000000
+Convolution extras_2_proj_conv 1 1 extras_2_dw_act extras_2_proj_conv 0=256 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=32768 9=0
+Clip extras_2_proj_act 1 1 extras_2_proj_conv extras_2_proj_act 0=0.000000 1=6.000000
+Split split_14 1 3 extras_2_proj_act extras_2_proj_act_c0 extras_2_proj_act_c1 extras_2_proj_act_c2
+Convolution extras_3_pw_conv 1 1 extras_2_proj_act_c0 extras_3_pw_conv 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+Clip extras_3_pw_act 1 1 extras_3_pw_conv extras_3_pw_act 0=0.000000 1=6.000000
+ConvolutionDepthWise extras_3_dw_conv 1 1 extras_3_pw_act extras_3_dw_conv 0=64 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=576 7=64 9=0
+Clip extras_3_dw_act 1 1 extras_3_dw_conv extras_3_dw_act 0=0.000000 1=6.000000
+Convolution extras_3_proj_conv 1 1 extras_3_dw_act extras_3_proj_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=8192 9=0
+Clip extras_3_proj_act 1 1 extras_3_proj_conv extras_3_proj_act 0=0.000000 1=6.000000
+Split split_15 1 2 extras_3_proj_act extras_3_proj_act_c0 extras_3_proj_act_c1
+ConvolutionDepthWise ssd_loc_0_dw 1 1 add_7_c1 ssd_loc_0_dw 0=96 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=864 7=96 9=0
+Clip ssd_loc_0_relu 1 1 ssd_loc_0_dw ssd_loc_0_relu 0=0.000000 1=6.000000
+Convolution ssd_loc_0 1 1 ssd_loc_0_relu ssd_loc_0 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1536 9=0
+ConvolutionDepthWise ssd_conf_0_dw 1 1 add_7_c2 ssd_conf_0_dw 0=96 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=864 7=96 9=0
+Clip ssd_conf_0_relu 1 1 ssd_conf_0_dw ssd_conf_0_relu 0=0.000000 1=6.000000
+Convolution ssd_conf_0 1 1 ssd_conf_0_relu ssd_conf_0 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=768 9=0
+ConvolutionDepthWise ssd_loc_1_dw 1 1 conv_head_act_c1 ssd_loc_1_dw 0=1280 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=11520 7=1280 9=0
+Clip ssd_loc_1_relu 1 1 ssd_loc_1_dw ssd_loc_1_relu 0=0.000000 1=6.000000
+Convolution ssd_loc_1 1 1 ssd_loc_1_relu ssd_loc_1 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=20480 9=0
+ConvolutionDepthWise ssd_conf_1_dw 1 1 conv_head_act_c2 ssd_conf_1_dw 0=1280 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=11520 7=1280 9=0
+Clip ssd_conf_1_relu 1 1 ssd_conf_1_dw ssd_conf_1_relu 0=0.000000 1=6.000000
+Convolution ssd_conf_1 1 1 ssd_conf_1_relu ssd_conf_1 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=10240 9=0
+ConvolutionDepthWise ssd_loc_2_dw 1 1 extras_0_proj_act_c1 ssd_loc_2_dw 0=512 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=4608 7=512 9=0
+Clip ssd_loc_2_relu 1 1 ssd_loc_2_dw ssd_loc_2_relu 0=0.000000 1=6.000000
+Convolution ssd_loc_2 1 1 ssd_loc_2_relu ssd_loc_2 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=8192 9=0
+ConvolutionDepthWise ssd_conf_2_dw 1 1 extras_0_proj_act_c2 ssd_conf_2_dw 0=512 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=4608 7=512 9=0
+Clip ssd_conf_2_relu 1 1 ssd_conf_2_dw ssd_conf_2_relu 0=0.000000 1=6.000000
+Convolution ssd_conf_2 1 1 ssd_conf_2_relu ssd_conf_2 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4096 9=0
+ConvolutionDepthWise ssd_loc_3_dw 1 1 extras_1_proj_act_c1 ssd_loc_3_dw 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 7=256 9=0
+Clip ssd_loc_3_relu 1 1 ssd_loc_3_dw ssd_loc_3_relu 0=0.000000 1=6.000000
+Convolution ssd_loc_3 1 1 ssd_loc_3_relu ssd_loc_3 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4096 9=0
+ConvolutionDepthWise ssd_conf_3_dw 1 1 extras_1_proj_act_c2 ssd_conf_3_dw 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 7=256 9=0
+Clip ssd_conf_3_relu 1 1 ssd_conf_3_dw ssd_conf_3_relu 0=0.000000 1=6.000000
+Convolution ssd_conf_3 1 1 ssd_conf_3_relu ssd_conf_3 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=2048 9=0
+ConvolutionDepthWise ssd_loc_4_dw 1 1 extras_2_proj_act_c1 ssd_loc_4_dw 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 7=256 9=0
+Clip ssd_loc_4_relu 1 1 ssd_loc_4_dw ssd_loc_4_relu 0=0.000000 1=6.000000
+Convolution ssd_loc_4 1 1 ssd_loc_4_relu ssd_loc_4 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4096 9=0
+ConvolutionDepthWise ssd_conf_4_dw 1 1 extras_2_proj_act_c2 ssd_conf_4_dw 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 7=256 9=0
+Clip ssd_conf_4_relu 1 1 ssd_conf_4_dw ssd_conf_4_relu 0=0.000000 1=6.000000
+Convolution ssd_conf_4 1 1 ssd_conf_4_relu ssd_conf_4 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=2048 9=0
+ConvolutionDepthWise ssd_loc_5_dw 1 1 extras_3_proj_act_c0 ssd_loc_5_dw 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+Clip ssd_loc_5_relu 1 1 ssd_loc_5_dw ssd_loc_5_relu 0=0.000000 1=6.000000
+Convolution ssd_loc_5 1 1 ssd_loc_5_relu ssd_loc_5 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=2048 9=0
+ConvolutionDepthWise ssd_conf_5_dw 1 1 extras_3_proj_act_c1 ssd_conf_5_dw 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+Clip ssd_conf_5_relu 1 1 ssd_conf_5_dw ssd_conf_5_relu 0=0.000000 1=6.000000
+Convolution ssd_conf_5 1 1 ssd_conf_5_relu ssd_conf_5 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1024 9=0
+Permute loc_perm_0 1 1 ssd_loc_0 loc_perm_0 0=1
+Flatten loc_flat_0 1 1 loc_perm_0 loc_flat_0
+Permute conf_perm_0 1 1 ssd_conf_0 conf_perm_0 0=1
+Flatten conf_flat_0 1 1 conf_perm_0 conf_flat_0
+PriorBox prior_0 2 1 add_7_c1 data prior_0 -23300=1,30.000000 -23301=1,70.000000 -23302=1,2.000000 3=1 4=0 5=0.100000 6=0.100000 7=0.200000 8=0.200000 9=300 10=300 11=-233 12=0.500000
+Permute loc_perm_1 1 1 ssd_loc_1 loc_perm_1 0=1
+Flatten loc_flat_1 1 1 loc_perm_1 loc_flat_1
+Permute conf_perm_1 1 1 ssd_conf_1 conf_perm_1 0=1
+Flatten conf_flat_1 1 1 conf_perm_1 conf_flat_1
+PriorBox prior_1 2 1 conv_head_act_c1 data prior_1 -23300=1,70.000000 -23301=1,110.000000 -23302=1,2.000000 3=1 4=0 5=0.100000 6=0.100000 7=0.200000 8=0.200000 9=300 10=300 11=-233 12=0.500000
+Permute loc_perm_2 1 1 ssd_loc_2 loc_perm_2 0=1
+Flatten loc_flat_2 1 1 loc_perm_2 loc_flat_2
+Permute conf_perm_2 1 1 ssd_conf_2 conf_perm_2 0=1
+Flatten conf_flat_2 1 1 conf_perm_2 conf_flat_2
+PriorBox prior_2 2 1 extras_0_proj_act_c1 data prior_2 -23300=1,110.000000 -23301=1,150.000000 -23302=1,2.000000 3=1 4=0 5=0.100000 6=0.100000 7=0.200000 8=0.200000 9=300 10=300 11=-233 12=0.500000
+Permute loc_perm_3 1 1 ssd_loc_3 loc_perm_3 0=1
+Flatten loc_flat_3 1 1 loc_perm_3 loc_flat_3
+Permute conf_perm_3 1 1 ssd_conf_3 conf_perm_3 0=1
+Flatten conf_flat_3 1 1 conf_perm_3 conf_flat_3
+PriorBox prior_3 2 1 extras_1_proj_act_c1 data prior_3 -23300=1,150.000000 -23301=1,190.000000 -23302=1,2.000000 3=1 4=0 5=0.100000 6=0.100000 7=0.200000 8=0.200000 9=300 10=300 11=-233 12=0.500000
+Permute loc_perm_4 1 1 ssd_loc_4 loc_perm_4 0=1
+Flatten loc_flat_4 1 1 loc_perm_4 loc_flat_4
+Permute conf_perm_4 1 1 ssd_conf_4 conf_perm_4 0=1
+Flatten conf_flat_4 1 1 conf_perm_4 conf_flat_4
+PriorBox prior_4 2 1 extras_2_proj_act_c1 data prior_4 -23300=1,190.000000 -23301=1,230.000000 -23302=1,2.000000 3=1 4=0 5=0.100000 6=0.100000 7=0.200000 8=0.200000 9=300 10=300 11=-233 12=0.500000
+Permute loc_perm_5 1 1 ssd_loc_5 loc_perm_5 0=1
+Flatten loc_flat_5 1 1 loc_perm_5 loc_flat_5
+Permute conf_perm_5 1 1 ssd_conf_5 conf_perm_5 0=1
+Flatten conf_flat_5 1 1 conf_perm_5 conf_flat_5
+PriorBox prior_5 2 1 extras_3_proj_act_c0 data prior_5 -23300=1,230.000000 -23301=1,270.000000 -23302=1,2.000000 3=1 4=0 5=0.100000 6=0.100000 7=0.200000 8=0.200000 9=300 10=300 11=-233 12=0.500000
+Concat mbox_loc 6 1 loc_flat_0 loc_flat_1 loc_flat_2 loc_flat_3 loc_flat_4 loc_flat_5 mbox_loc 0=0
+Concat mbox_conf 6 1 conf_flat_0 conf_flat_1 conf_flat_2 conf_flat_3 conf_flat_4 conf_flat_5 mbox_conf 0=0
+Concat mbox_prior 6 1 prior_0 prior_1 prior_2 prior_3 prior_4 prior_5 mbox_prior 0=0
+Reshape conf_reshape 1 1 mbox_conf conf_reshape 0=2 1=2000
+Softmax conf_softmax 1 1 conf_reshape conf_softmax 0=0
+Flatten conf_prob 1 1 conf_softmax conf_prob
+DetectionOutput detection_out 3 1 mbox_loc conf_prob mbox_prior detection_out 0=2 1=0.450000 2=200 3=32 4=0.500000

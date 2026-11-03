@@ -1,0 +1,33 @@
+{
+  "models": [
+    {
+      "name": "SqueezeNet",
+      "description": "SqueezeNet 1.1：Conv64 stem + 8 个 Fire（squeeze/expand Concat）+ GAP 分类，建议 227×227",
+      "arch": "squeezenet",
+      "file": "squeezenet.py",
+      "tflite_compatible": true,
+      "ncnn_compatible": true,
+      "suggest_size": 227,
+      "architecture": "SqueezeNet 1.1 分类网络，对齐竞赛板 squeezenet_int8。建议输入 227×227×3。Stem：Conv2D 64、3×3、stride 2 + MaxPool 3×3。随后 8 个 Fire 模块（1×1 squeeze，再并行 1×1 与 3×3 expand，Concat 拼接）：fire2–3 squeeze16/expand64 + Pool；fire4–5 squeeze32/expand128 + Pool；fire6–7 squeeze48/expand192；fire8–9 squeeze64/expand256。Dropout 0.5 → Conv 1×1（类别数）→ GlobalAveragePool → Softmax。Fire 的 Concat 可导出 ncnn；输入较小时自动把 stem/池化步长降为 1。"
+    },
+    {
+      "name": "MobileNetV2",
+      "description": "MobileNetV2 倒置残差分类骨干（GAP+Dense），建议 224×224；板上检测参考为 300 SSDLite",
+      "arch": "mobilenet",
+      "file": "mobilenet.py",
+      "tflite_compatible": true,
+      "ncnn_compatible": true,
+      "suggest_size": 224,
+      "architecture": "MobileNetV2 分类骨干，倒残差块与竞赛板 mobilenetv2_ssdlite_voc 骨干一致，本预设接 GAP+Dense 分类头（不是 SSD 检测头）。建议输入 224×224×3。Stem：Conv 32、3×3、stride 2 + BN + ReLU6。Inverted Residual（1×1 扩展 → 3×3 DepthwiseConv → 1×1 投影；stride=1 且通道相同时 Add 残差），配置 (t,c,n,s)：(1,16,1,1)、(6,24,2,2)、(6,32,3,2)、(6,64,4,2)、(6,96,3,1)、(6,160,3,2)、(6,320,1,1)。Conv 1×1 1280 + BN + ReLU6 → GlobalAveragePool → Dense softmax。板上参考包是 300×300 SSDLite VOC 检测；本预设用于分类训练。小图输入时减少下采样，避免特征图被打穿。"
+    },
+    {
+      "name": "简单 CNN",
+      "description": "2层卷积 + 池化（MNIST / 小图快速）",
+      "arch": "simple_cnn",
+      "file": "simple_cnn.py",
+      "tflite_compatible": true,
+      "ncnn_compatible": true,
+      "suggest_size": 28
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+verilog xil_defaultlib -i "../../../../../../../software/AMDDesign/2025.2/Vivado/data/rsb/busdef" --include "D:/software/AMDDesign/2025.2/Vivado/data/xilinx_vip/include" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/ec67/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/9a25/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/7e8c/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/a415" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/f0b6/hdl/verilog" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/00fe/hdl/verilog" \
+"../../../bd/system/ip/system_processing_system7_0_0/sim/system_processing_system7_0_0.v" \
+"../../../bd/system/ip/system_v_axi4s_vid_out_0_0/sim/system_v_axi4s_vid_out_0_0.v" \
+"../../../bd/system/ipshared/f810/src/rgb2lcd.v" \
+"../../../bd/system/ip/system_rgb2lcd_0_0/sim/system_rgb2lcd_0_0.v" \
+"../../../bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_mmcm_pll_drp.v" \
+"../../../bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.v" \
+"../../../bd/system/ip/system_v_axi4s_vid_out_0_1/sim/system_v_axi4s_vid_out_0_1.v" \
+"../../../bd/system/ip/system_v_vid_in_axi4s_0_0/sim/system_v_vid_in_axi4s_0_0.v" \
+"../../../bd/system/ipshared/c651/src/ov5640_capture_data.v" \
+"../../../bd/system/ip/system_ov5640_capture_data_0_0/sim/system_ov5640_capture_data_0_0.v" \
+"../../../bd/system/ipshared/31a1/src/asyn_rst_syn.v" \
+"../../../bd/system/ipshared/31a1/src/dvi_encoder.v" \
+"../../../bd/system/ipshared/31a1/src/serializer_10_to_1.v" \
+"../../../bd/system/ipshared/31a1/src/dvi_transmitter_top.v" \
+"../../../bd/system/ip/system_DVI_Transmitter_0_0/sim/system_DVI_Transmitter_0_0.v" \
+"../../../bd/system/ip/system_clk_wiz_0_1/system_clk_wiz_0_1_clk_wiz.v" \
+"../../../bd/system/ip/system_clk_wiz_0_1/system_clk_wiz_0_1.v" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/sim/bd_8562.v" \
+
+sv xil_defaultlib -i "../../../../../../../software/AMDDesign/2025.2/Vivado/data/rsb/busdef" --include "D:/software/AMDDesign/2025.2/Vivado/data/xilinx_vip/include" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/ec67/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/9a25/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/7e8c/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/a415" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/f0b6/hdl/verilog" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/00fe/hdl/verilog" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_2/sim/bd_8562_arinsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_3/sim/bd_8562_rinsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_4/sim/bd_8562_awinsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_5/sim/bd_8562_winsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_6/sim/bd_8562_binsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_7/sim/bd_8562_aroutsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_8/sim/bd_8562_routsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_9/sim/bd_8562_awoutsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_10/sim/bd_8562_woutsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_11/sim/bd_8562_boutsw_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_12/sim/bd_8562_arni_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_13/sim/bd_8562_rni_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_14/sim/bd_8562_awni_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_15/sim/bd_8562_wni_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_16/sim/bd_8562_bni_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_17/sim/bd_8562_s00mmu_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_18/sim/bd_8562_s00tr_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_19/sim/bd_8562_s00sic_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_20/sim/bd_8562_s00a2s_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_21/sim/bd_8562_sarn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_22/sim/bd_8562_srn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_23/sim/bd_8562_sawn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_24/sim/bd_8562_swn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_25/sim/bd_8562_sbn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_26/sim/bd_8562_m00s2a_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_27/sim/bd_8562_m00arn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_28/sim/bd_8562_m00rn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_29/sim/bd_8562_m00awn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_30/sim/bd_8562_m00wn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_31/sim/bd_8562_m00bn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_32/sim/bd_8562_m00e_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_33/sim/bd_8562_m01s2a_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_34/sim/bd_8562_m01arn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_35/sim/bd_8562_m01rn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_36/sim/bd_8562_m01awn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_37/sim/bd_8562_m01wn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_38/sim/bd_8562_m01bn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_39/sim/bd_8562_m01e_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_40/sim/bd_8562_m02s2a_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_41/sim/bd_8562_m02arn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_42/sim/bd_8562_m02rn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_43/sim/bd_8562_m02awn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_44/sim/bd_8562_m02wn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_45/sim/bd_8562_m02bn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_46/sim/bd_8562_m02e_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_47/sim/bd_8562_m03s2a_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_48/sim/bd_8562_m03arn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_49/sim/bd_8562_m03rn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_50/sim/bd_8562_m03awn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_51/sim/bd_8562_m03wn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_52/sim/bd_8562_m03bn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_53/sim/bd_8562_m03e_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_54/sim/bd_8562_m04s2a_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_55/sim/bd_8562_m04arn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_56/sim/bd_8562_m04rn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_57/sim/bd_8562_m04awn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_58/sim/bd_8562_m04wn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_59/sim/bd_8562_m04bn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_60/sim/bd_8562_m04e_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_61/sim/bd_8562_m05s2a_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_62/sim/bd_8562_m05arn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_63/sim/bd_8562_m05rn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_64/sim/bd_8562_m05awn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_65/sim/bd_8562_m05wn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_66/sim/bd_8562_m05bn_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/bd_0/ip/ip_67/sim/bd_8562_m05e_0.sv" \
+"../../../bd/system/ip/system_axi_smc_2/sim/system_axi_smc_2.sv" \
+
+verilog xil_defaultlib -i "../../../../../../../software/AMDDesign/2025.2/Vivado/data/rsb/busdef" --include "D:/software/AMDDesign/2025.2/Vivado/data/xilinx_vip/include" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/ec67/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/9a25/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/7e8c/hdl" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/a415" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/f0b6/hdl/verilog" --include "../../../../18_cam_lcd_hdmi_servo_net.gen/sources_1/bd/system/ipshared/00fe/hdl/verilog" \
+"../../../bd/system/ip/system_axi_mem_intercon_imp_xbar_0/sim/system_axi_mem_intercon_imp_xbar_0.v" \
+"../../../bd/system/sim/system.v" \
+"../../../bd/system/ip/system_axi_mem_intercon_imp_auto_pc_0/sim/system_axi_mem_intercon_imp_auto_pc_0.v" \
+"../../../bd/system/ip/system_axi_mem_intercon_imp_auto_pc_1/sim/system_axi_mem_intercon_imp_auto_pc_1.v" \
+"../../../bd/system/ip/system_axi_mem_intercon_imp_auto_pc_2/sim/system_axi_mem_intercon_imp_auto_pc_2.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

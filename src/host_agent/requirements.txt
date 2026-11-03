@@ -1,0 +1,25 @@
+# 深度学习框架（训练用本机 CUDA 版 PyTorch，板端仍导出 ncnn）
+torch>=2.6.0
+numpy>=1.24.0
+# PC 端加载板上 model.param.bin（竞赛四文件档案）需要官方 ncnn
+ncnn
+
+# 桌面应用界面（主程序使用 PyQt5 + Fluent Widgets）
+PyQt5>=5.15.0
+PyQt-Fluent-Widgets>=1.11.0
+
+# AI API 支持
+anthropic>=0.39.0
+openai>=1.0.0
+
+# 数据处理
+opencv-python>=4.8.0
+pillow>=10.0.0
+matplotlib>=3.7.0
+
+# FPGA 通信
+pyserial>=3.5
+
+# 工具库
+pyyaml>=6.0
+markdown>=3.5

@@ -1,0 +1,127 @@
+7767517
+125 141
+Input data 0 1 data 0=320 1=320 2=3
+Convolution backbone_stem_conv 1 1 data backbone_stem_conv 0=8 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=216 9=0
+ReLU backbone_stem_act 1 1 backbone_stem_conv backbone_stem_act
+ConvolutionDepthWise backbone_stage_0_conv 1 1 backbone_stem_act backbone_stage_0_conv 0=8 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=72 7=8 9=0
+ReLU backbone_stage_0_act 1 1 backbone_stage_0_conv backbone_stage_0_act
+Convolution backbone_stage_1_conv 1 1 backbone_stage_0_act backbone_stage_1_conv 0=16 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=128 9=0
+ReLU backbone_stage_1_act 1 1 backbone_stage_1_conv backbone_stage_1_act
+ConvolutionDepthWise backbone_stage_2_conv 1 1 backbone_stage_1_act backbone_stage_2_conv 0=16 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=144 7=16 9=0
+ReLU backbone_stage_2_act 1 1 backbone_stage_2_conv backbone_stage_2_act
+Convolution backbone_stage_3_conv 1 1 backbone_stage_2_act backbone_stage_3_conv 0=32 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=512 9=0
+ReLU backbone_stage_3_act 1 1 backbone_stage_3_conv backbone_stage_3_act
+ConvolutionDepthWise backbone_stage_4_conv 1 1 backbone_stage_3_act backbone_stage_4_conv 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=288 7=32 9=0
+ReLU backbone_stage_4_act 1 1 backbone_stage_4_conv backbone_stage_4_act
+Convolution backbone_stage_5_conv 1 1 backbone_stage_4_act backbone_stage_5_conv 0=32 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1024 9=0
+ReLU backbone_stage_5_act 1 1 backbone_stage_5_conv backbone_stage_5_act
+ConvolutionDepthWise backbone_stage_6_conv 1 1 backbone_stage_5_act backbone_stage_6_conv 0=32 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=288 7=32 9=0
+ReLU backbone_stage_6_act 1 1 backbone_stage_6_conv backbone_stage_6_act
+Convolution backbone_stage_7_conv 1 1 backbone_stage_6_act backbone_stage_7_conv 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=2048 9=0
+ReLU backbone_stage_7_act 1 1 backbone_stage_7_conv backbone_stage_7_act
+ConvolutionDepthWise backbone_stage_8_conv 1 1 backbone_stage_7_act backbone_stage_8_conv 0=64 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=576 7=64 9=0
+ReLU backbone_stage_8_act 1 1 backbone_stage_8_conv backbone_stage_8_act
+Convolution backbone_stage_9_conv 1 1 backbone_stage_8_act backbone_stage_9_conv 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4096 9=0
+ReLU backbone_stage_9_act 1 1 backbone_stage_9_conv backbone_stage_9_act
+Split split 1 2 backbone_stage_9_act backbone_stage_9_act_c0 backbone_stage_9_act_c1
+ConvolutionDepthWise backbone_stage_10_conv 1 1 backbone_stage_9_act_c0 backbone_stage_10_conv 0=64 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=576 7=64 9=0
+ReLU backbone_stage_10_act 1 1 backbone_stage_10_conv backbone_stage_10_act
+Convolution backbone_stage_11_conv 1 1 backbone_stage_10_act backbone_stage_11_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=8192 9=0
+ReLU backbone_stage_11_act 1 1 backbone_stage_11_conv backbone_stage_11_act
+ConvolutionDepthWise backbone_stage_12_conv 1 1 backbone_stage_11_act backbone_stage_12_conv 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+ReLU backbone_stage_12_act 1 1 backbone_stage_12_conv backbone_stage_12_act
+Convolution backbone_stage_13_conv 1 1 backbone_stage_12_act backbone_stage_13_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+ReLU backbone_stage_13_act 1 1 backbone_stage_13_conv backbone_stage_13_act
+ConvolutionDepthWise backbone_stage_14_conv 1 1 backbone_stage_13_act backbone_stage_14_conv 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+ReLU backbone_stage_14_act 1 1 backbone_stage_14_conv backbone_stage_14_act
+Convolution backbone_stage_15_conv 1 1 backbone_stage_14_act backbone_stage_15_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+ReLU backbone_stage_15_act 1 1 backbone_stage_15_conv backbone_stage_15_act
+ConvolutionDepthWise backbone_stage_16_conv 1 1 backbone_stage_15_act backbone_stage_16_conv 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+ReLU backbone_stage_16_act 1 1 backbone_stage_16_conv backbone_stage_16_act
+Convolution backbone_stage_17_conv 1 1 backbone_stage_16_act backbone_stage_17_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+ReLU backbone_stage_17_act 1 1 backbone_stage_17_conv backbone_stage_17_act
+ConvolutionDepthWise backbone_stage_18_conv 1 1 backbone_stage_17_act backbone_stage_18_conv 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+ReLU backbone_stage_18_act 1 1 backbone_stage_18_conv backbone_stage_18_act
+Convolution backbone_stage_19_conv 1 1 backbone_stage_18_act backbone_stage_19_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+ReLU backbone_stage_19_act 1 1 backbone_stage_19_conv backbone_stage_19_act
+ConvolutionDepthWise backbone_stage_20_conv 1 1 backbone_stage_19_act backbone_stage_20_conv 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+ReLU backbone_stage_20_act 1 1 backbone_stage_20_conv backbone_stage_20_act
+Convolution backbone_stage_21_conv 1 1 backbone_stage_20_act backbone_stage_21_conv 0=128 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+ReLU backbone_stage_21_act 1 1 backbone_stage_21_conv backbone_stage_21_act
+Split split_1 1 2 backbone_stage_21_act backbone_stage_21_act_c0 backbone_stage_21_act_c1
+ConvolutionDepthWise backbone_stage_22_conv 1 1 backbone_stage_21_act_c0 backbone_stage_22_conv 0=128 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=1152 7=128 9=0
+ReLU backbone_stage_22_act 1 1 backbone_stage_22_conv backbone_stage_22_act
+Convolution backbone_stage_23_conv 1 1 backbone_stage_22_act backbone_stage_23_conv 0=256 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=32768 9=0
+ReLU backbone_stage_23_act 1 1 backbone_stage_23_conv backbone_stage_23_act
+ConvolutionDepthWise backbone_stage_24_conv 1 1 backbone_stage_23_act backbone_stage_24_conv 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 7=256 9=0
+ReLU backbone_stage_24_act 1 1 backbone_stage_24_conv backbone_stage_24_act
+Convolution backbone_stage_25_conv 1 1 backbone_stage_24_act backbone_stage_25_conv 0=256 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=65536 9=0
+ReLU backbone_stage_25_act 1 1 backbone_stage_25_conv backbone_stage_25_act
+Convolution l3_conv 1 1 backbone_stage_25_act l3_conv 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=16384 9=0
+ReLU l3_act 1 1 l3_conv l3_act
+Split split_2 1 3 l3_act l3_act_c0 l3_act_c1 l3_act_c2
+Convolution l2_conv 1 1 backbone_stage_21_act_c1 l2_conv 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=8192 9=0
+ReLU l2_act 1 1 l2_conv l2_act
+Interp interp 1 1 l3_act_c0 interp 0=1 1=2.000000e+00 2=2.000000e+00 3=20 4=20
+Eltwise add 2 1 l2_act interp add 0=1
+Convolution a2_conv 1 1 add a2_conv 0=64 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864 9=0
+ReLU a2_act 1 1 a2_conv a2_act
+Split split_3 1 3 a2_act a2_act_c0 a2_act_c1 a2_act_c2
+Convolution l1_conv 1 1 backbone_stage_9_act_c1 l1_conv 0=64 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=4096 9=0
+ReLU l1_act 1 1 l1_conv l1_act
+Interp interp_1 1 1 a2_act_c0 interp_1 0=1 1=2.000000e+00 2=2.000000e+00 3=40 4=40
+Eltwise add_1 2 1 l1_act interp_1 add_1 0=1
+Convolution a1_conv 1 1 add_1 a1_conv 0=64 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864 9=0
+ReLU a1_act 1 1 a1_conv a1_act
+Split split_4 1 2 a1_act a1_act_c0 a1_act_c1
+Convolution ssh1_conv3_conv 1 1 a1_act_c0 ssh1_conv3_conv 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=18432 9=0
+Convolution ssh1_ctx1_conv 1 1 a1_act_c1 ssh1_ctx1_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+ReLU ssh1_ctx1_act 1 1 ssh1_ctx1_conv ssh1_ctx1_act
+Split split_5 1 2 ssh1_ctx1_act ssh1_ctx1_act_c0 ssh1_ctx1_act_c1
+Convolution ssh1_ctx2_conv 1 1 ssh1_ctx1_act_c0 ssh1_ctx2_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+Convolution ssh1_ctx3a_conv 1 1 ssh1_ctx1_act_c1 ssh1_ctx3a_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+ReLU ssh1_ctx3a_act 1 1 ssh1_ctx3a_conv ssh1_ctx3a_act
+Convolution ssh1_ctx3b_conv 1 1 ssh1_ctx3a_act ssh1_ctx3b_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+Concat concat 3 1 ssh1_conv3_conv ssh1_ctx2_conv ssh1_ctx3b_conv concat 0=0
+ReLU relu 1 1 concat relu
+Split split_6 1 3 relu relu_c0 relu_c1 relu_c2
+Convolution ssh2_conv3_conv 1 1 a2_act_c1 ssh2_conv3_conv 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=18432 9=0
+Convolution ssh2_ctx1_conv 1 1 a2_act_c2 ssh2_ctx1_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+ReLU ssh2_ctx1_act 1 1 ssh2_ctx1_conv ssh2_ctx1_act
+Split split_7 1 2 ssh2_ctx1_act ssh2_ctx1_act_c0 ssh2_ctx1_act_c1
+Convolution ssh2_ctx2_conv 1 1 ssh2_ctx1_act_c0 ssh2_ctx2_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+Convolution ssh2_ctx3a_conv 1 1 ssh2_ctx1_act_c1 ssh2_ctx3a_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+ReLU ssh2_ctx3a_act 1 1 ssh2_ctx3a_conv ssh2_ctx3a_act
+Convolution ssh2_ctx3b_conv 1 1 ssh2_ctx3a_act ssh2_ctx3b_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+Concat concat_1 3 1 ssh2_conv3_conv ssh2_ctx2_conv ssh2_ctx3b_conv concat_1 0=0
+ReLU relu_1 1 1 concat_1 relu_1
+Split split_8 1 3 relu_1 relu_1_c0 relu_1_c1 relu_1_c2
+Convolution ssh3_conv3_conv 1 1 l3_act_c1 ssh3_conv3_conv 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=18432 9=0
+Convolution ssh3_ctx1_conv 1 1 l3_act_c2 ssh3_ctx1_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+ReLU ssh3_ctx1_act 1 1 ssh3_ctx1_conv ssh3_ctx1_act
+Split split_9 1 2 ssh3_ctx1_act ssh3_ctx1_act_c0 ssh3_ctx1_act_c1
+Convolution ssh3_ctx2_conv 1 1 ssh3_ctx1_act_c0 ssh3_ctx2_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+Convolution ssh3_ctx3a_conv 1 1 ssh3_ctx1_act_c1 ssh3_ctx3a_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+ReLU ssh3_ctx3a_act 1 1 ssh3_ctx3a_conv ssh3_ctx3a_act
+Convolution ssh3_ctx3b_conv 1 1 ssh3_ctx3a_act ssh3_ctx3b_conv 0=16 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=2304 9=0
+Concat concat_2 3 1 ssh3_conv3_conv ssh3_ctx2_conv ssh3_ctx3b_conv concat_2 0=0
+ReLU relu_2 1 1 concat_2 relu_2
+Split split_10 1 3 relu_2 relu_2_c0 relu_2_c1 relu_2_c2
+Convolution face_rpn_cls_score_stride8 1 1 relu_c0 face_rpn_cls_score_stride8 0=4 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=256 9=0
+Convolution face_rpn_bbox_pred_stride8 1 1 relu_c1 face_rpn_bbox_pred_stride8 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=512 9=0
+Convolution face_rpn_landmark_pred_stride8 1 1 relu_c2 face_rpn_landmark_pred_stride8 0=20 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1280 9=0
+Convolution face_rpn_cls_score_stride16 1 1 relu_1_c0 face_rpn_cls_score_stride16 0=4 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=256 9=0
+Convolution face_rpn_bbox_pred_stride16 1 1 relu_1_c1 face_rpn_bbox_pred_stride16 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=512 9=0
+Convolution face_rpn_landmark_pred_stride16 1 1 relu_1_c2 face_rpn_landmark_pred_stride16 0=20 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1280 9=0
+Convolution face_rpn_cls_score_stride32 1 1 relu_2_c0 face_rpn_cls_score_stride32 0=4 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=256 9=0
+Convolution face_rpn_bbox_pred_stride32 1 1 relu_2_c1 face_rpn_bbox_pred_stride32 0=8 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=512 9=0
+Convolution face_rpn_landmark_pred_stride32 1 1 relu_2_c2 face_rpn_landmark_pred_stride32 0=20 1=1 11=1 3=1 13=1 4=0 14=0 15=0 16=0 5=1 6=1280 9=0
+Reshape face_rpn_cls_score_reshape_stride8 1 1 face_rpn_cls_score_stride8 face_rpn_cls_score_reshape_stride8 0=0 1=-1 2=2
+Softmax face_rpn_cls_prob_stride8 1 1 face_rpn_cls_score_reshape_stride8 face_rpn_cls_prob_stride8 0=0
+Reshape face_rpn_cls_prob_reshape_stride8 1 1 face_rpn_cls_prob_stride8 face_rpn_cls_prob_reshape_stride8 0=0 1=-1 2=4
+Reshape face_rpn_cls_score_reshape_stride16 1 1 face_rpn_cls_score_stride16 face_rpn_cls_score_reshape_stride16 0=0 1=-1 2=2
+Softmax face_rpn_cls_prob_stride16 1 1 face_rpn_cls_score_reshape_stride16 face_rpn_cls_prob_stride16 0=0
+Reshape face_rpn_cls_prob_reshape_stride16 1 1 face_rpn_cls_prob_stride16 face_rpn_cls_prob_reshape_stride16 0=0 1=-1 2=4
+Reshape face_rpn_cls_score_reshape_stride32 1 1 face_rpn_cls_score_stride32 face_rpn_cls_score_reshape_stride32 0=0 1=-1 2=2
+Softmax face_rpn_cls_prob_stride32 1 1 face_rpn_cls_score_reshape_stride32 face_rpn_cls_prob_stride32 0=0
+Reshape face_rpn_cls_prob_reshape_stride32 1 1 face_rpn_cls_prob_stride32 face_rpn_cls_prob_reshape_stride32 0=0 1=-1 2=4

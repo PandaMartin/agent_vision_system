@@ -1,0 +1,22 @@
+# Vivado / Vitis 生成物（可重建，不入库）
+**/.Xil/
+**/*.jou
+**/*.log
+!sim/vivado_run.log
+!sim/retry_open_fs.log
+**/*.str
+**/*.wdb
+**/*.wdf
+
+# Python
+**/__pycache__/
+*.pyc
+
+# OS
+Thumbs.db
+.DS_Store
+
+# 打包分发产物（体积大，见 README 提交合规说明）
+_internal/
+prebuilt/
+*.exe

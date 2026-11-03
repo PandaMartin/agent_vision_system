@@ -1,0 +1,102 @@
+{
+  "models": [
+    {
+      "name": "SqueezeNet",
+      "description": "Fire 模块分类，建议 227×227",
+      "arch": "squeezenet",
+      "file": "squeezenet.py",
+      "tflite_compatible": true,
+      "ncnn_compatible": true,
+      "suggest_size": 227,
+      "architecture": "SqueezeNet 1.1 分类网络，对齐竞赛板 squeezenet_int8。建议输入 227×227×3。Stem：Conv2D 64、3×3、stride 2 + MaxPool 3×3。随后 8 个 Fire 模块（1×1 squeeze，再并行 1×1 与 3×3 expand，Concat 拼接）：fire2–3 squeeze16/expand64 + Pool；fire4–5 squeeze32/expand128 + Pool；fire6–7 squeeze48/expand192；fire8–9 squeeze64/expand256。Dropout 0.5 → Conv 1×1（类别数）→ GlobalAveragePool → Softmax。Fire 的 Concat 可导出 ncnn；输入较小时自动把 stem/池化步长降为 1。",
+      "layer_outline": [
+        "Input  227×227×3",
+        "Convolution  conv1  64, 3×3, stride 2",
+        "Pooling  pool1  3×3",
+        "Fire2  squeeze 16 → expand 64 + 64 Concat",
+        "Fire3  squeeze 16 → expand 64 + 64 Concat",
+        "Pooling  pool3",
+        "Fire4  squeeze 32 → expand 128 + 128 Concat",
+        "Fire5  squeeze 32 → expand 128 + 128 Concat",
+        "Pooling  pool5",
+        "Fire6  squeeze 48 → expand 192 + 192 Concat",
+        "Fire7  squeeze 48 → expand 192 + 192 Concat",
+        "Fire8  squeeze 64 → expand 256 + 256 Concat",
+        "Fire9  squeeze 64 → expand 256 + 256 Concat",
+        "Dropout  0.5",
+        "Convolution  conv10  类别数, 1×1",
+        "Pooling  global average",
+        "Softmax"
+      ]
+    },
+    {
+      "name": "MobileNetV2",
+      "description": "SSD 检测，建议 300×300",
+      "arch": "mobilenet",
+      "file": "mobilenet.py",
+      "tflite_compatible": true,
+      "ncnn_compatible": true,
+      "suggest_size": 300,
+      "post": "detect",
+      "architecture": "可训练的 MobileNetV2 SSDLite，预处理与竞赛板 mobilenetv2_ssdlite_voc 对齐：300×300 BGR，mean=127.5，norm=1/127.5。骨干为倒置残差 stem Conv32 stride2 + IR (t,c,n,s)=(1,16,1,1)、(6,24,2,2)、(6,32,3,2)、(6,64,4,2)、(6,96,3,1)、(6,160,3,2)、(6,320,1,1)，再接 Conv 1×1 1280 与 4 个 stride-2 Extra 图。ReLU6 导出为独立 Clip。6 个尺度上 Depthwise loc/conf 头，smooth-L1 + softmax 难例挖掘；导出时 conf 经 Softmax 再进 ncnn PriorBox / DetectionOutput（板上 DetectionOutput 自身不再做 softmax）。loc/conf 的 1×1 头 INT8 时保持 fp32。NMS score=0.50 / IoU=0.45。",
+      "layer_outline": [
+        "Input  300×300×3 BGR，mean=127.5，norm=1/127.5",
+        "Convolution  stem  32, 3×3, stride 2 + BN + ReLU6",
+        "Inverted Residual  t=1  c=16  ×1  stride 1",
+        "Inverted Residual  t=6  c=24  ×2  stride 2",
+        "Inverted Residual  t=6  c=32  ×3  stride 2",
+        "Inverted Residual  t=6  c=64  ×4  stride 2",
+        "Inverted Residual  t=6  c=96  ×3  stride 1  （SSD 特征图）",
+        "Inverted Residual  t=6  c=160 ×3  stride 2",
+        "Inverted Residual  t=6  c=320 ×1  stride 1",
+        "Convolution  1280, 1×1 + BN + ReLU6",
+        "SSD Extra  多尺度附加卷积，生成检测特征图",
+        "SSD 分类头  Depthwise 预测类别分数",
+        "SSD 回归头  Depthwise 预测边框偏移",
+        "DetectionOutput  N×6（label, score, x1, y1, x2, y2）",
+        "NMS 后处理  score_th=0.50，IoU=0.45，max_keep=32"
+      ]
+    },
+    {
+      "name": "RetinaFace",
+      "description": "人脸检测，建议 320×320 fp32",
+      "arch": "retinaface",
+      "file": "retinaface.py",
+      "tflite_compatible": false,
+      "ncnn_compatible": true,
+      "suggest_size": 320,
+      "post": "retinaface",
+      "quantize": "none",
+      "architecture": "可训练的 RetinaFace MobileNet0.25。输入 320×320 RGB letterbox，PIXEL_BGR2RGB，mean=0，norm=1（与 ncnn examples/retinaface.cpp 一致，不是 SSD 的 127.5）。骨干抽 stride 8/16/32，FPN+SSH 后接 9 个头：cls(4) / bbox(8) / landmark(20)。cls 通道为 [bg0,bg1,face0,face1]，导出时接 Reshape→Softmax→Reshape。锚框 variance=1。导出 fp32，跳过 INT8。板上需 post=retinaface 固件；PC 可先解码验证。建议数据集 WIDER FACE。",
+      "layer_outline": [
+        "Input  320×320×3 RGB letterbox，mean=0，norm=1",
+        "MobileNet0.25  骨干，输出 stride 8 / 16 / 32",
+        "FPN  1×1 降维 + 最近邻上采样 Add",
+        "SSH  三尺度上下文卷积后 Concat + ReLU",
+        "cls 头  1×1，4 通道 [bg0,bg1,face0,face1] × stride 8/16/32",
+        "bbox 头  1×1，8 通道（2 锚 × 4）",
+        "landmark 头  1×1，20 通道（2 锚 × 10）",
+        "导出 Softmax  各尺度 Reshape→Softmax→Reshape",
+        "NMS 后处理  score_th=0.50，IoU=0.40，max_keep=32，fp32"
+      ]
+    },
+    {
+      "name": "简单 CNN",
+      "description": "2层卷积 + 池化（MNIST / 小图快速）",
+      "arch": "simple_cnn",
+      "file": "simple_cnn.py",
+      "tflite_compatible": true,
+      "ncnn_compatible": true,
+      "suggest_size": 28
+    },
+    {
+      "name": "深层 CNN",
+      "description": "4 层卷积 + GAP，分类",
+      "arch": "deep_cnn",
+      "file": "deep_cnn.py",
+      "tflite_compatible": false,
+      "ncnn_compatible": true,
+      "suggest_size": 28
+    }
+  ]
+}

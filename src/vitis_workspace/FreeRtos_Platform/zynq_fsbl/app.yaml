@@ -1,0 +1,4 @@
+domain_path: D:\Project_Hub\vitis_exp\18_cam_lcd_hdmi_servo_net\vitis\FreeRtos_Platform\zynq_fsbl\zynq_fsbl_bsp
+app_src_dir: D:\software\AMDDesign\2025.2\Vitis\data\embeddedsw\lib\sw_apps\zynq_fsbl
+template: zynq_fsbl
+lang: c

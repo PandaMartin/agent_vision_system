@@ -1,0 +1,116 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 19-sep-2027.
+
+****** Vivado v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Sun Nov  1 23:01:22 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_sim.tcl
+# set script_dir [file dirname [file normalize [info script]]]
+# set ip_src     "$script_dir/../ip_repo/ov5640_cap_data/SRC/ov5640_capture_data.v"
+# set tb_src     "$script_dir/tb_ov5640_capture_data.v"
+# if {![file exists $ip_src]} { puts "ERROR: IP æºä¸å­˜åœ¨: $ip_src"; exit 1 }
+# create_project -force ov5640_cap_sim "$script_dir/build"
+create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 582.609 ; gain = 268.449
+# add_files $ip_src
+# add_files -fileset sim_1 $tb_src
+# set_property top ov5640_capture_data [current_fileset]
+# set_property top tb_ov5640_capture_data [get_filesets sim_1]
+# set fh [open "$script_dir/xsim_run.tcl" w]
+# puts $fh "open_vcd tb.vcd"
+# puts $fh "log_vcd -recursive *"
+# puts $fh "run all"
+# puts $fh "close_vcd"
+# puts $fh "quit"
+# close $fh
+# set_property -name {xsim.simulate.runtime} -value {all} -objects [get_filesets sim_1]
+# set_property -name {xsim.simulate.tclbatch} -value "$script_dir/xsim_run.tcl" -objects [get_filesets sim_1]
+# launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Sun Nov  1 23:01:40 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb_ov5640_capture_data'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/build/ov5640_cap_sim.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/amdfpga/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_ov5640_capture_data' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/build/ov5640_cap_sim.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj tb_ov5640_capture_data_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/ip_repo/ov5640_cap_data/SRC/ov5640_capture_data.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ov5640_capture_data
+INFO: [VRFC 10-311] analyzing module isp_chain
+INFO: [VRFC 10-311] analyzing module rgb2gray
+INFO: [VRFC 10-311] analyzing module gaussian_filter
+INFO: [VRFC 10-311] analyzing module laplacian_sharpen
+INFO: [VRFC 10-311] analyzing module sobel
+INFO: [VRFC 10-311] analyzing module image_template_3x3
+INFO: [VRFC 10-311] analyzing module shift_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/tb_ov5640_capture_data.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_ov5640_capture_data
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/build/ov5640_cap_sim.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/build/ov5640_cap_sim.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_ov5640_capture_data_behav xil_defaultlib.tb_ov5640_capture_data xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/amdfpga/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_ov5640_capture_data_behav xil_defaultlib.tb_ov5640_capture_data xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.rgb2gray(H_SIZE=14'b010100000000...
+Compiling module xil_defaultlib.shift_register(DATA_DEPTH=14'b01...
+Compiling module xil_defaultlib.image_template_3x3(H_ACTIVE=14'b...
+Compiling module xil_defaultlib.gaussian_filter(H_SIZE=14'b01010...
+Compiling module xil_defaultlib.laplacian_sharpen(H_SIZE=14'b010...
+Compiling module xil_defaultlib.sobel(H_SIZE=14'b010100000000,V_...
+Compiling module xil_defaultlib.isp_chain
+Compiling module xil_defaultlib.ov5640_capture_data
+Compiling module xil_defaultlib.tb_ov5640_capture_data
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_ov5640_capture_data_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/build/ov5640_cap_sim.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_ov5640_capture_data_behav -key {Behavioral:sim_1:Functional:tb_ov5640_capture_data} -tclbatch {tb_ov5640_capture_data.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_ov5640_capture_data.tcl
+## set curr_wave [current_wave_config]
+## if { [string length $curr_wave] == 0 } {
+##   if { [llength [get_objects]] > 0} {
+##     add_wave /
+##     set_property needs_save false [current_wave_config]
+##   } else {
+##      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+##   }
+## }
+## run all
+CHECK C1 PASS: cam_rst_n=1, cam_pwdn=0
+CHECK C2 PASS: cmos_frame_clk == cam_pclk
+CHECK C3 PASS: wait_done å‰æ— è¾“å‡º (de_before_wait=0)
+CHECK C4 PASS: æ¯å¸§ 64 åƒç´ é…å¯¹, å…± 192 (= 3 å¸§ x 64)
+CHECK C5 PASS: 192 åƒç´  RGB565->RGB888 æ‰©å±•é€åƒç´ ä¸€è‡´
+CHECK C6 PASS: 3 ä¸ªè¾“å‡ºå¸§ç«¯å£åºåˆ—é€ç‚¹ä¸€è‡´ (æ¯å¸§ 56 é€‰é€š, è¡Œä¸»åºçª—å£)
+TB_PASS: all 6 checks passed (frames_in=13, pixels_checked=192)
+$finish called at time : 106970 ns : File "C:/Users/60250/Desktop/Ç¶ÈëÊ½/Ìá½»²ÄÁÏ²¹³ä/sim/tb_ov5640_capture_data.v" Line 183
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_ov5640_capture_data_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for all
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 606.836 ; gain = 24.227
+# puts "SIM_DONE"
+SIM_DONE
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  1 23:01:51 2026...

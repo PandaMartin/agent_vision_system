@@ -1,0 +1,8 @@
+{
+  "board_folder": "mnist_dcnn_int8",
+  "board_ready": false,
+  "board_status": "model.mod 尚未编译成功",
+  "sd_models_dir": "F:\\AWork\\fpga竞赛\\work\\models_sd\\mnist_dcnn_int8",
+  "host_models_dir": "F:\\AWork\\fpga竞赛\\work\\models\\mnist_mnist_deep_cnn_int8",
+  "board": "18_cam_lcd_hdmi_servo_net"
+}

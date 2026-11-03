@@ -1,0 +1,10 @@
+把本目录四个文件拷到：
+
+  SD:/models/wider_face_retinaface_fp32/
+
+  model.cfg
+  model.param.bin
+  model.bin
+  labels.txt
+
+不要把对照资料或固件源码放进这个 SD 文件夹。

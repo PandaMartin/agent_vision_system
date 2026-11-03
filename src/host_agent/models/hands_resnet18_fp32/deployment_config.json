@@ -1,0 +1,61 @@
+{
+  "backend": "ncnn",
+  "dataset": "hands",
+  "arch": "resnet18",
+  "pack_stem": "hands_resnet18",
+  "quantize": "fp32",
+  "folder_name": "hands_resnet18_fp32",
+  "param_file": "graph.param",
+  "bin_file": "model.bin",
+  "board_param": "model.param.bin",
+  "fp32_param": "hands_fp32.param",
+  "fp32_bin": "hands_fp32.bin",
+  "keras_path": "F:\\AWork\\fpga竞赛\\work\\models_output\\hands_resnet18_20261028_163556\\model.pt",
+  "image_size": 100,
+  "channels": 3,
+  "num_classes": 10,
+  "class_names": [
+    "手势 0",
+    "手势 1",
+    "手势 2",
+    "手势 3",
+    "手势 4",
+    "手势 5",
+    "手势 6",
+    "手势 7",
+    "手势 8",
+    "手势 9"
+  ],
+  "normalize": true,
+  "float_test_accuracy": 0.806451618030507,
+  "input_blob": "data",
+  "output_blob": "prob",
+  "blob_in": 0,
+  "blob_out": 64,
+  "pixel": "rgb",
+  "mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "norm": [
+    0.00392156862745098,
+    0.00392156862745098,
+    0.00392156862745098
+  ],
+  "post": "classify",
+  "input_shape_nchw": [
+    3,
+    100,
+    100
+  ],
+  "ncnn_layers": 57,
+  "host_models_dir": "F:\\AWork\\fpga竞赛\\work\\models\\hands_resnet18_fp32",
+  "fpga_ncnn_root": "F:\\AWork\\fpga_ncnn",
+  "board": "18_cam_lcd_hdmi_servo_net",
+  "display_name": "手势识别 · ResNet-18 · FP32 · 10-28 16:35",
+  "board_folder": "hands_r18_fp32",
+  "board_ready": false,
+  "board_status": "model.mod 尚未编译成功",
+  "sd_models_dir": "F:\\AWork\\fpga竞赛\\work\\models_sd\\hands_r18_fp32"
+}

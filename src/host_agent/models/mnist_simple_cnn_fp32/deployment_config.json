@@ -1,0 +1,61 @@
+{
+  "backend": "ncnn",
+  "dataset": "mnist",
+  "arch": "simple_cnn",
+  "pack_stem": "mnist_simple_cnn",
+  "quantize": "fp32",
+  "folder_name": "mnist_simple_cnn_fp32",
+  "param_file": "graph.param",
+  "bin_file": "model.bin",
+  "board_param": "model.param.bin",
+  "fp32_param": "mnist_fp32.param",
+  "fp32_bin": "mnist_fp32.bin",
+  "keras_path": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\models_output\\mnist_simple_cnn_20261102_103123\\model.pt",
+  "image_size": 28,
+  "channels": 1,
+  "num_classes": 10,
+  "class_names": [
+    "数字 0",
+    "数字 1",
+    "数字 2",
+    "数字 3",
+    "数字 4",
+    "数字 5",
+    "数字 6",
+    "数字 7",
+    "数字 8",
+    "数字 9"
+  ],
+  "normalize": true,
+  "float_test_accuracy": 0.9859,
+  "input_blob": "data",
+  "output_blob": "prob",
+  "blob_in": 0,
+  "blob_out": 10,
+  "pixel": "bgr",
+  "mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "norm": [
+    0.00392156862745098,
+    0.00392156862745098,
+    0.00392156862745098
+  ],
+  "post": "classify",
+  "input_shape_nchw": [
+    1,
+    28,
+    28
+  ],
+  "ncnn_layers": 11,
+  "host_models_dir": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\models\\mnist_simple_cnn_fp32",
+  "fpga_ncnn_root": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\prebuilt\\ncnn",
+  "board": "18_cam_lcd_hdmi_servo_net",
+  "display_name": "MNIST · 简单 CNN · FP32 · 11-02 10:31",
+  "board_folder": "mnist_cnn_fp32",
+  "board_ready": true,
+  "board_status": "model.mod 已按当前固件封包",
+  "sd_models_dir": "E:\\AWork\\fpga竞赛\\work\\dist\\FPGA_Deploy_Assistant\\models_sd\\mnist_cnn_fp32"
+}

@@ -1,0 +1,11 @@
+source: trained in this repo (not InsightFace mnet.25)
+run_dir: F:\AWork\fpga竞赛\work\models_output\wider_face_retinaface_20261017_020127
+host_pack: F:\AWork\fpga竞赛\work\models\wider_face_retinaface_fp32
+sd_pack: F:\AWork\fpga竞赛\work\models_sd\wider_face_retinaface_fp32
+dataset: wider_face
+arch: retinaface
+quantize: fp32
+input: 320 letterbox PIXEL_BGR2RGB mean=0 norm=1
+post: retinaface
+decode: ncnn/examples/retinaface.cpp  (NOT InsightFace variance 0.1/0.2)
+do_not_use: handoff/retinaface_mnet25_fp32  (never flashed; different blob ids)

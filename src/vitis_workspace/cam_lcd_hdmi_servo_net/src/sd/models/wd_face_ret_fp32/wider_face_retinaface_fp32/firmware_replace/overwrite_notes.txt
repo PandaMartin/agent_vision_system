@@ -1,0 +1,25 @@
+把本目录 src/ 整棵覆盖到竞赛板工程：
+
+  F:\AWork\12_ov5640_ncnn\vitis\ov5640_ncnn\src\
+
+对应关系：
+
+  板端固件替换/src/main.cpp
+      -> .../ov5640_ncnn/src/main.cpp
+  板端固件替换/src/sw/nn/model_profile.h
+      -> .../ov5640_ncnn/src/sw/nn/model_profile.h
+  板端固件替换/src/sw/nn/model_mgr.h
+      -> .../ov5640_ncnn/src/sw/nn/model_mgr.h
+  板端固件替换/src/sw/nn/model_mgr.cpp
+      -> .../ov5640_ncnn/src/sw/nn/model_mgr.cpp
+  板端固件替换/src/sw/nn/nn_runner.h
+      -> .../ov5640_ncnn/src/sw/nn/nn_runner.h
+  板端固件替换/src/sw/nn/nn_runner.cpp
+      -> .../ov5640_ncnn/src/sw/nn/nn_runner.cpp
+  板端固件替换/src/sw/nn/post_process.h
+      -> .../ov5640_ncnn/src/sw/nn/post_process.h
+  板端固件替换/src/sw/nn/post_process.cpp
+      -> .../ov5640_ncnn/src/sw/nn/post_process.cpp
+
+不要改 hw/、ncnn_inc/、ncnn_lib/。覆盖后在 Vitis 重新编译 ELF 再烧板。
+只拷 SD 卡四文件、不换 ELF，旧固件不会跑 RetinaFace。

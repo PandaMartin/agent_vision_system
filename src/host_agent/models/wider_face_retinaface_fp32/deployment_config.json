@@ -1,0 +1,52 @@
+{
+  "backend": "ncnn",
+  "board": "18_cam_lcd_hdmi_servo_net",
+  "dataset": "wider_face",
+  "arch": "retinaface",
+  "pack_stem": "wider_face_retinaface",
+  "quantize": "fp32",
+  "folder_name": "wider_face_retinaface_fp32",
+  "param_file": "graph.param",
+  "bin_file": "model.bin",
+  "board_param": "model.param.bin",
+  "fp32_param": "wider_face_fp32.param",
+  "fp32_bin": "wider_face_fp32.bin",
+  "keras_path": "F:\\AWork\\fpga竞赛\\work\\models_output\\wider_face_retinaface_20261101_113500\\model.pt",
+  "image_size": 320,
+  "channels": 3,
+  "num_classes": 1,
+  "class_names": [
+    "face"
+  ],
+  "normalize": true,
+  "float_test_accuracy": 0.5254081983743988,
+  "input_blob": "data",
+  "output_blob": "face_rpn_cls_prob_reshape_stride32",
+  "blob_in": 0,
+  "blob_out": 140,
+  "pixel": "bgr2rgb",
+  "mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "norm": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "post": "retinaface",
+  "input_shape_nchw": [
+    3,
+    320,
+    320
+  ],
+  "ncnn_layers": 125,
+  "sd_models_dir": "F:\\AWork\\fpga竞赛\\work\\models_sd\\wd_face_ret_fp32",
+  "host_models_dir": "F:\\AWork\\fpga竞赛\\work\\models\\wider_face_retinaface_fp32",
+  "fpga_ncnn_root": "F:\\AWork\\fpga_ncnn",
+  "display_name": "WIDER FACE 人脸检测 · RetinaFace · FP32 · 11-01 11:35",
+  "board_folder": "wd_face_ret_fp32",
+  "board_ready": true,
+  "board_status": "model.mod 已按当前固件封包"
+}

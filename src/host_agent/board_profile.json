@@ -1,0 +1,20 @@
+{
+  "board_name": "18_cam_lcd_hdmi_servo_net",
+  "screen_width": 800,
+  "screen_height": 480,
+  "board_ip": "192.168.1.10",
+  "board_port": 69,
+  "pc_ip_hint": "192.168.1.100/24",
+  "path_limit": 48,
+  "board_folder_max": 20,
+  "app_folder_max": 16,
+  "icon_bytes_max": 15,
+  "gui_app_max": 8,
+  "model_index_max": 8,
+  "model_mod_base": "0x21000000",
+  "model_mod_size": "0x00400000",
+  "ops_scratch_base": "0x21400000",
+  "ops_scratch_size": "0x00800000",
+  "photo_max_w": 1280,
+  "photo_max_h": 720
+}

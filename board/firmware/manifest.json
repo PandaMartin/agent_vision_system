@@ -1,0 +1,11 @@
+{
+  "board_name": "18_cam_lcd_hdmi_servo_net",
+  "source": "F:\\AWork\\18_cam_lcd_hdmi_servo_net\\18_cam_lcd_hdmi_servo_net\\vitis\\cam_lcd_hdmi_servo_net",
+  "symbol_version": "3497793220530861241",
+  "symbol_count": 5137,
+  "files": {
+    "bit": "system_wrapper.bit",
+    "fsbl": "fsbl.elf",
+    "elf": "cam_lcd_hdmi_servo_net.elf"
+  }
+}

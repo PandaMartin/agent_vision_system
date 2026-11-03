@@ -1,0 +1,59 @@
+7767517
+57 65
+Input data 0 1 data 0=100 1=100 2=3
+Convolution stem_conv 1 1 data stem_conv 0=32 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=864 9=0
+ReLU stem_act 1 1 stem_conv stem_act
+Split split 1 2 stem_act stem_act_c0 stem_act_c1
+Convolution layer1_conv1 1 1 stem_act_c0 layer1_conv1 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+ReLU layer1_relu1 1 1 layer1_conv1 layer1_relu1
+Convolution layer1_conv2 1 1 layer1_relu1 layer1_conv2 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+Eltwise add 2 1 stem_act_c1 layer1_conv2 add 0=1
+ReLU layer1_relu_out 1 1 add layer1_relu_out
+Split split_1 1 2 layer1_relu_out layer1_relu_out_c0 layer1_relu_out_c1
+Convolution layer2_conv1 1 1 layer1_relu_out_c0 layer2_conv1 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+ReLU layer2_relu1 1 1 layer2_conv1 layer2_relu1
+Convolution layer2_conv2 1 1 layer2_relu1 layer2_conv2 0=32 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=9216 9=0
+Eltwise add_1 2 1 layer1_relu_out_c1 layer2_conv2 add_1 0=1
+ReLU layer2_relu_out 1 1 add_1 layer2_relu_out
+Split split_2 1 2 layer2_relu_out layer2_relu_out_c0 layer2_relu_out_c1
+Convolution layer3_conv1 1 1 layer2_relu_out_c0 layer3_conv1 0=64 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=18432 9=0
+ReLU layer3_relu1 1 1 layer3_conv1 layer3_relu1
+Convolution layer3_conv2 1 1 layer3_relu1 layer3_conv2 0=64 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864 9=0
+Convolution layer3_down_0 1 1 layer2_relu_out_c1 layer3_down_0 0=64 1=1 11=1 3=2 13=2 4=0 14=0 15=0 16=0 5=1 6=2048 9=0
+Eltwise add_2 2 1 layer3_down_0 layer3_conv2 add_2 0=1
+ReLU layer3_relu_out 1 1 add_2 layer3_relu_out
+Split split_3 1 2 layer3_relu_out layer3_relu_out_c0 layer3_relu_out_c1
+Convolution layer4_conv1 1 1 layer3_relu_out_c0 layer4_conv1 0=64 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864 9=0
+ReLU layer4_relu1 1 1 layer4_conv1 layer4_relu1
+Convolution layer4_conv2 1 1 layer4_relu1 layer4_conv2 0=64 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=36864 9=0
+Eltwise add_3 2 1 layer3_relu_out_c1 layer4_conv2 add_3 0=1
+ReLU layer4_relu_out 1 1 add_3 layer4_relu_out
+Split split_4 1 2 layer4_relu_out layer4_relu_out_c0 layer4_relu_out_c1
+Convolution layer5_conv1 1 1 layer4_relu_out_c0 layer5_conv1 0=128 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=73728 9=0
+ReLU layer5_relu1 1 1 layer5_conv1 layer5_relu1
+Convolution layer5_conv2 1 1 layer5_relu1 layer5_conv2 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=147456 9=0
+Convolution layer5_down_0 1 1 layer4_relu_out_c1 layer5_down_0 0=128 1=1 11=1 3=2 13=2 4=0 14=0 15=0 16=0 5=1 6=8192 9=0
+Eltwise add_4 2 1 layer5_down_0 layer5_conv2 add_4 0=1
+ReLU layer5_relu_out 1 1 add_4 layer5_relu_out
+Split split_5 1 2 layer5_relu_out layer5_relu_out_c0 layer5_relu_out_c1
+Convolution layer6_conv1 1 1 layer5_relu_out_c0 layer6_conv1 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=147456 9=0
+ReLU layer6_relu1 1 1 layer6_conv1 layer6_relu1
+Convolution layer6_conv2 1 1 layer6_relu1 layer6_conv2 0=128 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=147456 9=0
+Eltwise add_5 2 1 layer5_relu_out_c1 layer6_conv2 add_5 0=1
+ReLU layer6_relu_out 1 1 add_5 layer6_relu_out
+Split split_6 1 2 layer6_relu_out layer6_relu_out_c0 layer6_relu_out_c1
+Convolution layer7_conv1 1 1 layer6_relu_out_c0 layer7_conv1 0=256 1=3 11=3 3=2 13=2 4=1 14=1 15=1 16=1 5=1 6=294912 9=0
+ReLU layer7_relu1 1 1 layer7_conv1 layer7_relu1
+Convolution layer7_conv2 1 1 layer7_relu1 layer7_conv2 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824 9=0
+Convolution layer7_down_0 1 1 layer6_relu_out_c1 layer7_down_0 0=256 1=1 11=1 3=2 13=2 4=0 14=0 15=0 16=0 5=1 6=32768 9=0
+Eltwise add_6 2 1 layer7_down_0 layer7_conv2 add_6 0=1
+ReLU layer7_relu_out 1 1 add_6 layer7_relu_out
+Split split_7 1 2 layer7_relu_out layer7_relu_out_c0 layer7_relu_out_c1
+Convolution layer8_conv1 1 1 layer7_relu_out_c0 layer8_conv1 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824 9=0
+ReLU layer8_relu1 1 1 layer8_conv1 layer8_relu1
+Convolution layer8_conv2 1 1 layer8_relu1 layer8_conv2 0=256 1=3 11=3 3=1 13=1 4=1 14=1 15=1 16=1 5=1 6=589824 9=0
+Eltwise add_7 2 1 layer7_relu_out_c1 layer8_conv2 add_7 0=1
+ReLU layer8_relu_out 1 1 add_7 layer8_relu_out
+Pooling gap 1 1 layer8_relu_out gap 0=1 4=1
+InnerProduct fc 1 1 gap fc 0=10 1=1 2=2560 9=0
+Softmax prob 1 1 fc prob 0=0

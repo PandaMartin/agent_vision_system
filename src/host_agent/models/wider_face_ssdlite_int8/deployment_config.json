@@ -1,0 +1,51 @@
+{
+  "backend": "ncnn",
+  "board": "18_cam_lcd_hdmi_servo_net",
+  "dataset": "wider_face",
+  "arch": "ssdlite",
+  "pack_stem": "wider_face_ssdlite",
+  "quantize": "int8",
+  "folder_name": "wider_face_ssdlite_int8",
+  "param_file": "graph.param",
+  "bin_file": "model.bin",
+  "board_param": "model.param.bin",
+  "fp32_param": "wider_face_fp32.param",
+  "fp32_bin": "wider_face_fp32.bin",
+  "keras_path": "F:\\AWork\\fpga竞赛\\work\\models_output\\wider_face_ssdlite_20261015_213755\\model.pt",
+  "image_size": 300,
+  "channels": 3,
+  "num_classes": 1,
+  "class_names": [
+    "face"
+  ],
+  "normalize": true,
+  "float_test_accuracy": 0.5973192602396011,
+  "input_blob": "data",
+  "output_blob": "detection_out",
+  "blob_in": 0,
+  "blob_out": 231,
+  "pixel": "bgr",
+  "mean": [
+    127.5,
+    127.5,
+    127.5
+  ],
+  "norm": [
+    0.00784313725490196,
+    0.00784313725490196,
+    0.00784313725490196
+  ],
+  "post": "detect",
+  "input_shape_nchw": [
+    3,
+    300,
+    300
+  ],
+  "ncnn_layers": 211,
+  "sd_models_dir": "F:\\AWork\\fpga竞赛\\work\\models_sd\\wd_face_ssd_int8",
+  "fpga_ncnn_root": "F:\\AWork\\fpga_ncnn",
+  "host_models_dir": "F:\\AWork\\fpga竞赛\\work\\models\\wider_face_ssdlite_int8",
+  "board_folder": "wd_face_ssd_int8",
+  "board_ready": false,
+  "board_status": "model.mod 尚未编译成功"
+}
