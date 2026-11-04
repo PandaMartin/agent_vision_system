@@ -3,7 +3,7 @@
 > Agent-Driven Configurable Vision Processing System on Zynq-7020
 > 本报告按竞赛要求组织为七部分：选题背景与创新点 / 设计原理与功能框图 / 软硬件划分依据与
 > 接口设计 / 优化过程（含前后对比表）/ 大模型协作记录 / 技能包提炼过程 / 复现说明。
-> 图表取自《最终技术报告》与工程实测记录，仅收录关键项；完整版技术报告与逐条协作记录见
+> 图表取自《技术文档》与工程实测记录，仅收录关键项；完整版技术文档与逐条协作记录见
 > `report/llm_collaboration_log.md` 与工程内文档。
 
 ## 1. 选题背景与创新点
@@ -294,4 +294,4 @@ python tools/netpush/net_push.py --dir 0:/models/mnist_cnn_fp32 \
     Sensors, 2026, 26(5):1626.  [3] Slimani O, Boudjit K. Acceleration and Energy Optimization
     of CNNs on Zynq-7000 SoC. JESA, 2026, 59(1):157-166.  [10] Deng J, et al. RetinaFace.
     CVPR 2020.  [11] Yang S, et al. WIDER FACE. CVPR 2016.  [12] Tencent ncnn (GitHub).
-    [14] lwIP.  [16] RFC 1350 (TFTP). 完整文献表见《最终技术报告》第五部分。
+    [14] lwIP.  [16] RFC 1350 (TFTP). 完整文献表见《技术文档》第五部分。
