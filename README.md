@@ -118,7 +118,7 @@ SD 应用从零开发（不打开 IDE）：`python tools/sdapp/sdapp.py export` 
 
 ## 更多入口
 
-- 设计报告（Markdown，七项要求逐项对应，配图 14 幅）：`report/design_report.md`
+- 设计报告（七项要求逐项对应，配图 14 幅）：`report/design_report.md`（Markdown）/ `report/design_report.docx`（Word 版，22 页）
 - 大模型协作与智能体工作流：`report/llm_collaboration_log.md`
 - 技能包（含通用 PYNQ 技能）：`skill/README.md`
 - 完整提交自检：`python skill/verification-scripts/repo_integrity_check.py <仓库根>`
