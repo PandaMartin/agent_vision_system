@@ -93,7 +93,7 @@ SD 应用从零开发（不打开 IDE）：`python tools/sdapp/sdapp.py export` 
      （获取方式见 `build/build_host_agent.md`）；
   2. Vivado 可再生中间检查点不随包：`synth_1/system_wrapper.dcp`、`impl_1/{opt,placed,physopt}.dcp`、
      `utils_1/imports/`（从他机导入的同内容 dcp）——重新跑实现即再生；**保留**布线后
-     `system_wrapper_routed.dcp`（10.5MB，最终网表，含 rgb2lcd 实例产物，见"已知事项"第 1 条）；
+     `system_wrapper_routed.dcp`（10.5MB，最终网表）；
   3. 重复副本去重：上位机 `models_sd/`（= `data/model_packs/`）、上位机 `firmware/`
      （= `board/firmware/`）、模型库内与 `model.bin` 逐字节相同的原始权重
      （`hands_fp32.bin`、`wider_face_fp32.bin`×2，MD5 已核验相同）、
@@ -108,8 +108,12 @@ SD 应用从零开发（不打开 IDE）：`python tools/sdapp/sdapp.py export` 
 
 ## 已知事项（如实声明）
 
-1. **rgb2lcd IP 的 RTL 源未随包**：BD 引用 `user:rgb2lcd:1.0`，开发备份中该 IP 目录缺失；
-   包内含其实例产物、布线后检查点与比特流；从源码完整重建 PL 前需补入该 IP 源。
+1. **rgb2lcd IP 已随包补全**（2026-11-04）：RTL 源取自工程生成缓存（与设计实际编译的源一致）；
+   IP 包装（component.xml 与 lcd 总线定义）按 IP-XACT 依据 BD 记录的端口/接口/极性重建，
+   VLNV `www.alientek.com:user:rgb2lcd:1.0` 与工程引用一致；`ip_repo/ov5640_capture_data`
+   同步替换为与 BD 视频接口匹配的版本（原备份为旧 cmos_* 并口接口，与 BD 不符）。更新后的
+   ip_repo 已在 Vivado 中实例化验证：三个自定义 IP（DVI_Transmitter / ov5640_capture_data /
+   rgb2lcd）全部创建成功，引脚与接口数和模块定义逐一吻合。
 2. 上位机聊天界面（PyQt5 UI 层）源码未包含在本快照（仅随打包机构建）；
    训练/导出/封包/推送/编译全链路源码与 agent 技能文件齐备，见 `build/build_host_agent.md`。
 3. 固件 BSP 两处 libsrc 手改会被平台"重新生成"冲掉，恢复纪律见 `build/build_firmware.md`。
